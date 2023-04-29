@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super (?) Heroes Companion Tool</title>
+    <script src="jquery-1.11.2.min.js"></script>
+    <script src="tracery.min.js"></script>
+    <script src="input_output.js"></script>
+    <script src="grammar.js"></script>
+    <script src="story.js"></script>
+  </head>
+  <body>
+    <h1>Super (?) Heroes Companion Tool</h1>
+    <hr>
+    <pre>Source Code: https://github.com/dacevedo11/TraceryAssignment</pre>
+    <pre>Rules: https://github.com/dacevedo11/dacevedo11.github.io/blob/main/onepagerpg.pdf</pre>
+    <br>
+    <pre>Select the type of dice to roll:</pre>
+    <select id="dice_type">
+      <option value="4">d4</option>
+      <option value="6">d6</option>
+      <option value="8">d8</option>
+      <option value="10">d10</option>
+      <option value="12">d12</option>
+      <option value="20"selected>d20</option>
+    </select>
+    <button onclick="roll_dice()">Roll Dice</button>
+    <div id="dice_result" style="height: 30px;"></div>
+    <br>
+    <pre>Push the button to generate a story</pre>
+    <button onclick="generate_story()">Generate Story</button>
+    <div id="story"></div>
+    <script>
+      function roll_dice() {
+        var dice_type = document.getElementById("dice_type").value;
+        var result = Math.floor(Math.random() * dice_type) + 1;
+        document.getElementById("dice_result").innerHTML = "You rolled a " + result + "!";
+      }
+    </script>
+  </body>
+</html>
